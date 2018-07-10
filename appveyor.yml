@@ -1,0 +1,23 @@
+environment:
+  nodejs_version: "8"
+
+cache:
+  - node_modules -> package-lock.json
+
+matrix:
+  fast_finish: true
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - npm install
+  - node --version
+  - npm --version
+  - npm run webdriver-update-appveyor
+
+test_script:
+  - node --version
+  - npm --version
+  - npm run lint
+  - npm test
+  - npm run e2e
+  - npm run build
