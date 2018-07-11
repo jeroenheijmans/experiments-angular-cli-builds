@@ -13,6 +13,7 @@ install:
   - node --version
   - npm --version
   - npm run webdriver-update-appveyor
+  - choco install googlechrome --limit-output --ignore-checksum
 
 test_script:
   - node --version
